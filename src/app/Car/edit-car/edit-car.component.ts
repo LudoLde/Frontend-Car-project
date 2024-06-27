@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Car } from '../../Models/Car';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarApiService } from '../car-api.service';
-import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-edit-car',
@@ -52,9 +51,8 @@ onSubmit( car: Car, carId: number) {
   this.carApiService.editCar(car, carId).subscribe(
     response => {
       console.log(response);
-      this.router.navigate(['/car/get_one/', carId])
-    },
-    error =>(console.log(error))
+       this.router.navigate(['/car/get_one/', carId])
+    }
   )
  
 }
