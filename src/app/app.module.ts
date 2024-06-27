@@ -7,16 +7,20 @@ import { GetAllCarsComponent } from './Car/get-all-cars/get-all-cars.component';
 import { CarApiService } from './Car/car-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GetOneCarComponent } from './Car/get-one-car/get-one-car.component';
+import { FormsModule } from '@angular/forms';
+import { EditCarComponent } from './Car/edit-car/edit-car.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetAllCarsComponent,
-    GetOneCarComponent
+    GetOneCarComponent,
+    EditCarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [CarApiService],

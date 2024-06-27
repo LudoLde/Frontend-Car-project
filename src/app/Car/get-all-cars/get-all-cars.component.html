@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link active" href="#">Home
             </a>
           </li>
           <li class="nav-item">
@@ -28,7 +28,7 @@
           <p class="card-text">Car model: {{car.modele}}</p>
         </div>
         <div class="card-body">
-          <button (click)="goToDetailsCar(car)" class="btn btn-info">Editer</button>
+          <button (click)="goToDetailsCar(car)" class="btn btn-info">More</button>
         </div>
         <div class="card-footer text-muted bg-primary">
             <p class="text-white mb-0">Added on: {{car.createdAt | date:'MM/YYYY'}}</p>
