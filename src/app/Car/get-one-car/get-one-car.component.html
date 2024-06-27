@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-danger" href="#">CARS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Add new Car</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Cars</a>
+          </li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="d-flex justify-content-center mt-5">
+    <div *ngIf="car" class="card mb-3 w-50 mt-3">
+        <h3 class="card-header bg-primary text-danger">ID #{{car.id}}</h3>
+        <div  class="card-body">
+            <img  *ngIf="car.image" src="{{car.image}}" alt="image-car">
+        <div class="card-body">
+            <table class="table table-hover">
+                <tbody>
+                  <tr class="table">
+                    <th scope="row">Car brand </th>
+                    <td>{{car.marque}}</td>
+                  </tr>
+                  <tr class="table-primary">
+                    <th scope="row">Car model </th>
+                    <td>{{car.modele}}</td>
+                  </tr>
+                  <tr class="table">
+                    <th scope="row">Model year </th>
+                    <td>{{car.annee_modele}}</td>
+                  </tr>
+                  <tr class="table-primary">
+                    <th scope="row">Gearbox </th>
+                    <td>{{car.boite_vitesse}}</td>
+                  </tr>
+                  <tr class="table">
+                    <th scope="row">Fuel </th>
+                    <td>{{car.carburant}}</td>
+                  </tr>
+                  <tr class="table-primary">
+                    <th scope="row">Added on </th>
+                    <td>{{car.createdAt | date:'dd/MM/YYYY'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+        <div class="card-footer bg-primary">
+            <button class="btn btn-info me-2">Editer</button>
+            <button routerLink="/car/get_all" class="btn btn-secondary">Retour</button>
+          </div>
+      </div>
+      
+  </div>
