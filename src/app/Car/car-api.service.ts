@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { Car } from '../Models/Car';
@@ -24,7 +24,7 @@ export class CarApiService {
 
   getCar(carId: number): Observable<Car | undefined> {
 
-    return this.http.get<Car|undefined>(`${this.apiUrl}get_one/${carId}`)
+    return this.http.get<Car>(`${this.apiUrl}get_one/${carId}`)
     .pipe(tap(car => console.log(car)
     ),
   catchError(error => {
@@ -33,21 +33,15 @@ export class CarApiService {
   }))
   }
 
-  editCar(car: Car, carId: number): Observable<null> {
-    const formData: FormData = new FormData();
-    formData.append('marque', car.marque);
-    formData.append('modele', car.modele);
-    formData.append('annee_modele', car.annee_modele.toString());
-    formData.append('boite_vitesse', car.boite_vitesse);
-    formData.append('carburant', car.carburant);
-    if(car.image){
-      formData.append('image', car.image, car.image.name) 
-    }
+  editCar(car: Car): Observable<Car|undefined> {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
 
-    return this.http.put<null>(`${this.apiUrl}edit/${carId}`, formData)
+    return this.http.put<Car>(`${this.apiUrl}edit/${car.id}`, car, httpOptions)
     .pipe(catchError(error => {
       console.log(error);
-      return of(null)
+      return of(undefined)
     }))
   }
 

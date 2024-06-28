@@ -5,7 +5,7 @@ export class Car {
     annee_modele: number;
     boite_vitesse: string;
     carburant: string;
-    image?: File;
+    image: string | null ;
     createdAt: Date;
 
 }
