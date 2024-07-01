@@ -18,9 +18,9 @@ ngOnInit() {
 }
 
 
-onSubmit(car: Car) {
-  this.carApiService.createCar(car).subscribe(
-    () =>{ 
+onSubmit() {
+  this.carApiService.createCar(this.car).subscribe(
+    () =>{  console.log(this.car);
         this.router.navigate([`/car/get_all`])}
   )
 }

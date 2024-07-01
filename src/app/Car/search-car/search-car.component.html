@@ -1,9 +1,10 @@
-<div class="container mt-3 mb-5 border p-3 bg-light rounded">
+<div class="container mt-3 mb-5 border p-3 rounded">
     <div class="d-flex flex-column mx-auto w-50">
-        <label for="term">Saisissez une marque de voiture: </label>
+        <label>Saisissez une marque de voiture: </label>
         <div>
-            <ng-select [items]="cars$ | async" autofocus bindLabel="marque" bindValue="id" [(ngModel)]="selectedCarBrand"></ng-select>
-            <br>{{selectedCarBrand}}
+            <ng-select [items]="cars$ | async" autofocus bindLabel="marque" bindValue="id" [(ngModel)]="selectedCarBrand" class="border w-25 mb-2"></ng-select>
+            <br class="bg-dark">
+            <button class="btn btn-info" (click)="goToDetail(selectedCarBrand)">Voir Détails</button>
         </div>
     </div>
 </div>

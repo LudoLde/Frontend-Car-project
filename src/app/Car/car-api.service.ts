@@ -50,7 +50,7 @@ export class CarApiService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
 
-    return this.http.post<null>(`${this.apiUrl}create/`, car, httpOptions)
+    return this.http.post<null>(`${this.apiUrl}create`, car, httpOptions)
     .pipe(catchError(error => {
       console.log(error);
       return of(null)

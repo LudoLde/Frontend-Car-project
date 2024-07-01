@@ -12,6 +12,7 @@ import { CarApiService } from '../car-api.service';
 export class SearchCarComponent implements OnInit{
 cars$: Observable<Car[]>;
 selectedCarBrand: string;
+car: Car;
 
 constructor(private router: Router, private carApiService: CarApiService) {}
 
@@ -19,7 +20,7 @@ constructor(private router: Router, private carApiService: CarApiService) {}
    this.cars$ = this.carApiService.getAllCar()
   }
 
-  goToDetail(carId: number) {
+  goToDetail(carId: string) {    
     const link = `car/get_one/${carId}`
     this.router.navigate([link])
   }
