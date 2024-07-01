@@ -26,6 +26,11 @@ goToEdit(car: Car) {
   if (carId) {
     this.router.navigate(['/car/edit/', car.id])
    }
-
 }
+
+removeCar(carId: number) {
+  this.carApiService.deleteCar(carId).subscribe(() =>
+    this.router.navigate(['/car/get_all'])) 
+}
+
 }

@@ -7,31 +7,32 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home
+            <a class="nav-link active" href="#">Accueil
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Add new Car</a>
+            <a class="nav-link" href="#">Ajoutez une voiture</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">My Cars</a>
+            <a class="nav-link" href="#">Mes Cars</a>
           </li>
           </ul>
       </div>
     </div>
   </nav>
-  <div class="d-flex justify-content-center flex-wrap mt-5">
-    <div *ngFor="let car of cars" class="card w-50 mb-4">
+  <app-search-car></app-search-car>
+  <div class="d-flex justify-content-center flex-wrap mt-5 ">
+    <div *ngFor="let car of cars" class="card mb-4" style="width: 35%;">
         <h3 class="card-header bg-primary text-danger">ID #{{car.id}}</h3>
         <div class="card-body">
-          <p class="card-text">Car brand: {{car.marque}}</p>
-          <p class="card-text">Car model: {{car.modele}}</p>
+          <p class="card-text">Marque: {{car.marque}}</p>
+          <p class="card-text">Modèle: {{car.modele}}</p>
         </div>
         <div class="card-body">
-          <button (click)="goToDetailsCar(car)" class="btn btn-info">More</button>
+          <button (click)="goToDetailsCar(car)" class="btn btn-info">En savoir plus</button>
         </div>
         <div class="card-footer text-muted bg-primary">
-            <p class="text-white mb-0">Added on: {{car.createdAt | date:'MM/YYYY'}}</p>
+            <p class="text-white mb-0">Créé le: {{car.createdAt | date:'MM/YYYY'}}</p>
         </div>
       </div>
   </div>

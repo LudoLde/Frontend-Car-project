@@ -45,4 +45,24 @@ export class CarApiService {
     }))
   }
 
+  createCar(car: Car): Observable<null> {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    return this.http.post<null>(`${this.apiUrl}create/`, car, httpOptions)
+    .pipe(catchError(error => {
+      console.log(error);
+      return of(null)
+    }))
+  }
+
+  deleteCar(carId: number): Observable<null> {
+    return this.http.delete<null>(`${this.apiUrl}delete/${carId}`)
+    .pipe(catchError(error => {
+      console.log(error);
+      return of(null)
+    }))
+  }
+
 }

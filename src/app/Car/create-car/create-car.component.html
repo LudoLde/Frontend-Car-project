@@ -21,7 +21,7 @@
     </div>
   </nav>
   <div class="container mt-5">
-    <form *ngIf="car" (ngSubmit)="onSubmit(this.car)" enctype="multipart/form-data" #formEdit="ngForm">
+    <form (ngSubmit)="onSubmit(car)" enctype="multipart/form-data" #formEdit="ngForm">
           <legend class="mb-5">Partie Édition:</legend>
           <div class="row mb-2">
             <label for="marque" class="col-sm-2 col-form-label">Marque:</label>
@@ -66,10 +66,7 @@
             <label for="image" class="form-label mt-4">Ajouter l'URL d'une image:</label>
             <input class="form-control" type="url" id="image" name="image" [(ngModel)]="car.image" #image="ngModel">
           </div>
-          <button type="submit" class="btn btn-primary mt-5">Modifiez</button>
-          <button (click)="goBackToCarDetails(car)" class="btn btn-primary mt-5 ms-3">Retour</button>
+          <button type="submit" class="btn btn-primary mt-5">Envoyez !</button>
+          <button  class="btn btn-primary mt-5 ms-3">Retour</button>
       </form>
-  </div>
-  <div *ngIf="!car" class="container mt-5">
-   <p class="text-danger mt-3 fs-4"> Error nothing to do here ! </p>
   </div>
